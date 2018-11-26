@@ -14,7 +14,7 @@
 <title>登陆</title>
 <link href="css/base.css" rel="stylesheet" type="text/css">
 <link href="css/css.css" rel="stylesheet" type="text/css">
-<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/jquery-2.2.1.min.js"></script>
 <style>
 .tab {
 	overflow: hidden;

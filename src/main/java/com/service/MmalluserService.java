@@ -1,8 +1,44 @@
 package com.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
-public class MmalluserService {
+import com.dao.MmalluserDAO;
+import com.pojo.Mmalluser;
+import com.util.MD5;
 
+@Service
+public class MmalluserService implements IMmalluserService {
+	@Autowired
+	MmalluserDAO md;
+		
+	public void setMd(MmalluserDAO md) {
+		this.md = md;
+	}
+
+
+	//登陆验证
+	/* (non-Javadoc)
+	 * @see com.service.IMmalluserService#checkUser(java.lang.String, java.lang.String, java.lang.String)
+	 */
+	@Override
+	public boolean checkUser(String role,String user,String password) {
+		Mmalluser mu = new Mmalluser();
+		mu.setUsername(user);
+		mu.setUserpassword(MD5.md5(password));
+		mu.setUserrole(role);
+		if(md.checkUser(mu)!=null) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 }
+
+
+
+
+
+
+
+

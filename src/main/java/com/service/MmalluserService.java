@@ -22,16 +22,13 @@ public class MmalluserService implements IMmalluserService {
 	 * @see com.service.IMmalluserService#checkUser(java.lang.String, java.lang.String, java.lang.String)
 	 */
 	@Override
-	public boolean checkUser(String role,String user,String password) {
+	public Mmalluser checkUser(String role,String user,String password) {
 		Mmalluser mu = new Mmalluser();
 		mu.setUsername(user);
 		mu.setUserpassword(MD5.md5(password));
 		mu.setUserrole(role);
-		if(md.checkUser(mu)!=null) {
-			return true;
-		}else {
-			return false;
-		}
+		Mmalluser mmalluser = md.checkUser(mu);
+		return mmalluser;
 	}
 }
 

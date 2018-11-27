@@ -1,7 +1,9 @@
 package com.service;
 
+import com.pojo.Mmalluser;
+
 public interface IMmalluserService {
 
-	public boolean checkUser(String role, String user, String password);
+	public Mmalluser checkUser(String role, String user, String password);
 
 }

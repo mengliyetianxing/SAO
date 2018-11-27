@@ -27,7 +27,7 @@ public class MmalluserController {
 			if("1".equals(role)) {
 				return "index";
 			}else if("2".equals(role)) {
-				return "Shop-page";
+				return "Storezone";
 			}else {
 				return "login";
 			}

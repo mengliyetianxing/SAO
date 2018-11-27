@@ -9,15 +9,13 @@ import com.service.IMmalluserService;
 @Controller
 @RequestMapping("/mmalluser")
 public class MmalluserController {
-<<<<<<< HEAD
 		
 @RequestMapping("/registration")
  public String user(){
 	return "User-registration";	 
 	 
  }	
-	
-=======
+
 	@Autowired
 	IMmalluserService is;
 	
@@ -44,6 +42,5 @@ public class MmalluserController {
 			return "login";
 		}
 	}
->>>>>>> branch 'master' of https://github.com/mengliyetianxing/SAO
 	
 }

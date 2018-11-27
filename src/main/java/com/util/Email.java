@@ -11,7 +11,10 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class Email {
+public final class Email {
+	private Email() {
+		
+	}
 	/**
 	 * 发送邮件
      * @param to 给谁发

@@ -39,6 +39,7 @@ $(function(){
 		$(this).click(function(){
 		$(this).addClass("on").siblings().removeClass("on");
 		$(".conlist .conbox").eq(i).show().siblings().hide();
+		$(".conlist .conbox form").eq(i).show().siblings().hide();
 		})
 	})
 })
@@ -66,28 +67,34 @@ $(function(){
         </div>
         <div class="conlist">
             <div class="conbox" style="display:block;">
+		        <form action="mmalluser/userlogin" method="post">
+		        	<input name="role" type="hidden" value="1">
                 <p>
-                    <input type="text" class="loginusername">
+                    <input type="text" class="loginusername" required="required" name="user">
                 </p>
                 <p>
-                    <input type="password" class="loginuserpassword">
+                    <input type="password" class="loginuserpassword" required="required" name="password">
                 </p>
                 <p><span class="fl fntz14 margin-t10"><a href="mmalluser/registration" style="color:#ff6000">立即注册</a></span><span class="fr fntz12 margin-t10"><a href="#">忘记密码？</a></span></p>
                 <p>
-                    <input type="button" class="loginbtn" value="登  录">
+                    <input type="submit" class="loginbtn" value="登  录">
                 </p>
+        		 </form>
             </div>
             <div class="conbox">
+	         <form action="mmalluser/userlogin" method="post">
+	        	<input name="role" type="hidden" value="2">
             	<p>
-                    <input type="text" class="loginusername">
+                    <input type="text" class="loginusername" name="user">
                 </p>
                 <p>
-                    <input type="password" class="loginuserpassword">
+                    <input type="password" class="loginuserpassword" name="password">
                 </p>
                 <p><span class="fl fntz14 margin-t10"><a href="mmalluser/registration" style="color:#ff6000">立即注册</a></span><span class="fr fntz12 margin-t10"><a href="#">忘记密码？</a></span></p>
                 <p>
-                    <input type="button" class="loginbtn" value="登  录">
+                    <input type="submit" class="loginbtn" value="登  录">
                 </p>
+         		 </form>
             </div>
         </div>
     </div>

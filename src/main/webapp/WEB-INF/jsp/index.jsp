@@ -768,17 +768,12 @@
       <div class="ServiceBox">
         <div class="bjfffs"></div>
         <dl onclick="javascript:;">
-		    <dt><img src="images/Service1.png"></dt>
-		       <dd><strong>QQ客服1</strong>
+		    <dt><img src="images/4.jpg"></dt>
+		       <dd><strong>QQ客服</strong>
 		          <p class="p1">9:00-22:00</p>
-		           <p class="p2"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=123456&amp;site=DGG三端同步&amp;menu=yes">点击交谈</a></p>
-		          </dd>
-		        </dl>
-				<dl onclick="javascript:;">
-		          <dt><img src="images/Service1.png"></dt>
-		          <dd> <strong>QQ客服1</strong>
-		            <p class="p1">9:00-22:00</p>
-		            <p class="p2"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=123456&amp;site=DGG三端同步&amp;menu=yes">点击交谈</a></p>
+		           <p class="p2">
+		           	<a target="hiden" href="http://sighttp.qq.com/authd?IDKEY=10948d8170b34f63658c36f901476844d1b5bedcc5b65e7b"><img border="0"  src="http://wpa.qq.com/imgd?IDKEY=10948d8170b34f63658c36f901476844d1b5bedcc5b65e7b&pic=51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+		           </p>
 		          </dd>
 		        </dl>
 	          </div>
@@ -798,6 +793,6 @@
     <li class="fixeBoxLi BackToTop"> <span class="fixeBoxSpan"></span> <strong>返回顶部</strong> </li>
   </ul>
 </div>
-
+<iframe name="hiden"></iframe>
 </body>
 </html>

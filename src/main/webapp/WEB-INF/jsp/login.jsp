@@ -70,10 +70,10 @@ $(function(){
 		        <form action="mmalluser/userlogin" method="post">
 		        	<input name="role" type="hidden" value="1">
                 <p>
-                    <input type="text" class="loginusername" required="required" name="user">
+                    <input type="text" class="loginusername" required="required" name="user" placeholder="请输入账号">
                 </p>
                 <p>
-                    <input type="password" class="loginuserpassword" required="required" name="password">
+                    <input type="password" class="loginuserpassword" required="required" name="password" placeholder="请输入密码">
                 </p>
                 <p><span class="fl fntz14 margin-t10"><a href="mmalluser/registration" style="color:#ff6000">立即注册</a></span><span class="fr fntz12 margin-t10"><a href="#">忘记密码？</a></span></p>
                 <p>
@@ -85,10 +85,10 @@ $(function(){
 	         <form action="mmalluser/userlogin" method="post">
 	        	<input name="role" type="hidden" value="2">
             	<p>
-                    <input type="text" class="loginusername" name="user">
+                    <input type="text" class="loginusername" name="user" placeholder="请输入账号" required="required">
                 </p>
                 <p>
-                    <input type="password" class="loginuserpassword" name="password">
+                    <input type="password" class="loginuserpassword" name="password" placeholder="请输入密码" required="required">
                 </p>
                 <p><span class="fl fntz14 margin-t10"><a href="mmalluser/registration" style="color:#ff6000">立即注册</a></span><span class="fr fntz12 margin-t10"><a href="#">忘记密码？</a></span></p>
                 <p>

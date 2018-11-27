@@ -14,7 +14,7 @@
 <title>登陆</title>
 <link href="css/base.css" rel="stylesheet" type="text/css">
 <link href="css/css.css" rel="stylesheet" type="text/css">
-<script src="js/jquery-2.2.1.min.js"></script>
+<script src="js/jquery-3.2.1.js"></script>
 <style>
 .tab {
 	overflow: hidden;
@@ -72,7 +72,7 @@ $(function(){
                 <p>
                     <input type="password" class="loginuserpassword">
                 </p>
-                <p><span class="fl fntz14 margin-t10"><a href="#" style="color:#ff6000">立即注册</a></span><span class="fr fntz12 margin-t10"><a href="#">忘记密码？</a></span></p>
+                <p><span class="fl fntz14 margin-t10"><a href="mmalluser/registration" style="color:#ff6000">立即注册</a></span><span class="fr fntz12 margin-t10"><a href="#">忘记密码？</a></span></p>
                 <p>
                     <input type="button" class="loginbtn" value="登  录">
                 </p>
@@ -84,7 +84,7 @@ $(function(){
                 <p>
                     <input type="password" class="loginuserpassword">
                 </p>
-                <p><span class="fl fntz14 margin-t10"><a href="#" style="color:#ff6000">立即注册</a></span><span class="fr fntz12 margin-t10"><a href="#">忘记密码？</a></span></p>
+                <p><span class="fl fntz14 margin-t10"><a href="mmalluser/registration" style="color:#ff6000">立即注册</a></span><span class="fr fntz12 margin-t10"><a href="#">忘记密码？</a></span></p>
                 <p>
                     <input type="button" class="loginbtn" value="登  录">
                 </p>

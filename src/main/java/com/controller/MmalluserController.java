@@ -12,12 +12,6 @@ import com.service.IMmalluserService;
 @Controller
 @RequestMapping("/mmalluser")
 public class MmalluserController {
-		
-@RequestMapping("/registration")
- public String user(){
-	return "User-registration";	 
-	 
- }	
 
 	@Autowired
 	IMmalluserService is;
@@ -47,4 +41,8 @@ public class MmalluserController {
 		}
 	}
 	
+	@RequestMapping("/registration")
+	public String user(){
+		return "User-registration";	 
+	}
 }

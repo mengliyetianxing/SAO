@@ -65,15 +65,15 @@
 <!--菜单栏-->
 	<div class="Navigation" id="Navigation">
 		 <ul class="Navigation_name">
-			<li><a href="Home.html">首页</a></li>
-            <li class="hour"><span class="bg_muen"></span><a href="#">半小时生活圈</a></li>
-			<li><a href="#">你身边的超市</a></li>
+			<li><a href="index">首页</a></li>
+            <li><a href="https://www.dytt8.net">半小时生活圈</a></li>
+			<li><a href="https://chaoshi.tmall.com">你身边的超市</a></li>
 			<li><a href="#">预售专区</a><em class="hot_icon"></em></li>
 			<li><a href="products_list.html">商城</a></li>
 			
 			<li><a href="#">好评商户</a></li>
 			<li><a href="#">热销活动</a></li>
-			<li><a href="Brands.html">联系我们</a></li>
+			<li><a href="https://consumerservice.taobao.com">联系我们</a></li>
 		 </ul>			 
 		</div>
 	<script>$("#Navigation").slide({titCell:".Navigation_name li",trigger:"click"});</script>

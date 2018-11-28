@@ -36,21 +36,33 @@
     
     <c:if test="${empty user }">
       <div class="Collection"><a href="login" class="green">请登录</a> <a href="registration" class="green">免费注册</a></div>
-    </c:if>
-    
-    <c:if test="${not empty user }">
-      <div class="Collection"><p>尊敬的<a href="#">${user.username }</a>,<span id="topp"></span></p></div>
-    </c:if>
-    
-	<div class="hd_top_manu clearfix">
+   			<div class="hd_top_manu clearfix">
 	  <ul class="clearfix">
-	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">首页</a></li> 
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href=index>首页</a></li> 
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
         <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>(23)</b></a></li>	
 	  </ul>
 	</div>
+    </c:if>
+    
+    <c:if test="${not empty user }">
+      <div class="Collection"><p>尊敬的<a href="#">${user.username }</a>,<span id="topp"></span></p></div>
+    		<div class="hd_top_manu clearfix">
+	  <ul class="clearfix">
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href=index>首页</a></li> 
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
+       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
+        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>(23)</b></a></li>	
+	  <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="mmalluser/Introduction">退出登录</a></li>
+	  </ul>
+	</div>
+    
+    </c:if>
+    
+
     </div>
     
   </div>

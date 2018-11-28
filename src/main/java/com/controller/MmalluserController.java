@@ -23,6 +23,7 @@ public class MmalluserController {
 	//登陆验证
 	@RequestMapping("/userlogin")
 	public String userlogin(String role,String user,String password,HttpServletRequest req) {
+		
 		if(role==null||user==null||password==null||role.equals("")||user.equals("")||password.equals("")) {
 			return "login";
 		}
@@ -39,6 +40,12 @@ public class MmalluserController {
 		}else {
 			return "login";
 		}
+	}
+	//退出登录
+	@RequestMapping("/Introduction")
+	public String Introduction(HttpServletRequest req) {
+		req.getSession().removeAttribute("user");
+		return "index";
 	}
 	
 	@RequestMapping("/registration")

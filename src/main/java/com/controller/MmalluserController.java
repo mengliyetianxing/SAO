@@ -44,6 +44,7 @@ public class MmalluserController {
 		if(mu!=null) {
 			HttpSession s = req.getSession();
 			s.setAttribute("user", mu);
+			if(mu.getMmac()!=null) {
 			List<Cartandprodect> list = mu.getMmac().getProdectid();
 			s.setAttribute("prodectsize", list.size());
 			BigDecimal money = new BigDecimal("0.00");
@@ -51,6 +52,7 @@ public class MmalluserController {
 				money.add(c.getProdectid().getProdectprice().multiply(new BigDecimal(c.getCartquantity())));
 			}
 			s.setAttribute("money", money);
+			}
 			if("1".equals(role)) {
 				return "index";
 			}else if("2".equals(role)) {

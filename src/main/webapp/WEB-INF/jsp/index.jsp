@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%
     String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-    
-   
-    %>
+%>
 <!DOCTYPE html >
 <html>
 
@@ -24,20 +23,7 @@
 <body>
 <head>
  <div id="header_top">
-  <div id="top">
-    <div class="Inside_pages">
-      <div class="Collection"><a href="#" class="green">请登录</a> <a href="#" class="green">免费注册</a></div>
-	<div class="hd_top_manu clearfix">
-	  <ul class="clearfix">
-	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">首页</a></li> 
-	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
-	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
-       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
-        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>(23)</b></a></li>	
-	  </ul>
-	</div>
-    </div>
-  </div>
+	<c:import url="Top.jsp"></c:import>
   <div id="header"  class="header page_style">
   <div class="logo"><a href="index.html"><img src="images/logo.png" /></a></div>
   <!--结束图层-->
@@ -783,7 +769,7 @@
 			<div class="cartBox">
        		<div class="bjfff"></div>
 			<div class="QR_code">
-			 <p><img src="images/erweim.jpg" width="180px" height="180px" /></p>
+			 <p><img src="images/5.jpg" width="180px" height="180px" /></p>
 			 <p>微信扫一扫，关注我们</p>
 			</div>		
 			</div>

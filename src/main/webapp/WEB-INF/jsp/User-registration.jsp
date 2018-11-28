@@ -329,7 +329,7 @@ ${res}
 					<p>
 						<input type="submit" class="loginbtn" value="注 册">
 					</p>
-					<!-- </form> -->
+					</form>
 				</div>
 			</div>
 		</div>

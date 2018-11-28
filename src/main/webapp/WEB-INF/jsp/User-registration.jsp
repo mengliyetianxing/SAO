@@ -92,7 +92,7 @@ function comit(){
 /*邮箱验证 */
 function dianji(){
 	var useremail =document.getElementById("useremail1").value;
-		if(useremail==""&!useremail.contains("@")){
+		if(useremail==""&-1==useremail.indexOf("@")){
 			alert("邮箱格式不正确")
 			return;
 		}
@@ -167,7 +167,7 @@ function comit2(){
 /*邮箱验证 */
 function dianji2(){
 	var useremail =document.getElementById("useremail2").value;
-		if(useremail==""&!useremail.contains("@")){
+		if(useremail==""&-1==useremail.indexOf("@")){
 			alert("邮箱格式不正确")
 			return;
 		}

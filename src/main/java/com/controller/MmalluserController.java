@@ -2,16 +2,21 @@ package com.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
+import java.util.List;
 
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.pojo.Cartandprodect;
+import com.pojo.Mmallprodect;
 import com.pojo.Mmalluser;
 import com.service.IMmalluserService;
 import com.util.Common;
@@ -37,7 +42,15 @@ public class MmalluserController {
 		}
 		Mmalluser mu = is.checkUser(role, user, password);
 		if(mu!=null) {
-			req.getSession().setAttribute("user", mu);
+			HttpSession s = req.getSession();
+			s.setAttribute("user", mu);
+			List<Cartandprodect> list = mu.getMmac().getProdectid();
+			s.setAttribute("prodectsize", list.size());
+			BigDecimal money = new BigDecimal("0.00");
+			for (Cartandprodect c : list) {
+				money.add(c.getProdectid().getProdectprice().multiply(new BigDecimal(c.getCartquantity())));
+			}
+			s.setAttribute("money", money);
 			if("1".equals(role)) {
 				return "index";
 			}else if("2".equals(role)) {

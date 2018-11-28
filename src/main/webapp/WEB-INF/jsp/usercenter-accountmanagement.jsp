@@ -53,19 +53,19 @@
     <div class="spacer"></div>
 	 <!--<div class="prompt"></div><div class="nogoods"><b></b>购物车中还没有商品，赶紧选购吧！</div>-->
 	 <ul class="p_s_list">	
-	 	<c:forEach items="${user.mmac }" var="mmac">
+	 	<c:forEach items="${user.mmac.prodectid }" var="mmac">
 	 		<li>
-		    <div class="img"><img src="${mmac.prodectid.prodectmainimage }"></div>
-		    <div class="content"><p class="name"><a href="#">${mmac.prodectid.prodectname }</a></p><p>${mmac.prodectid.categoryid.categoryname }</p></div>
+		    <div class="img"><img src="${mmac.pro.prodectmainimage }"></div>
+		    <div class="content"><p class="name"><a href="#">${mmac.pro.prodectname }</a></p><p>${mmac.pro.categoryid.categoryname }</p></div>
 			<div class="Operations">
-			<p class="Price">${mmac.prodectid.prodectprice }</p>
-			<p><a href="#">删除</a></p></div>
+			<p class="Price">${mmac.pro.prodectprice }</p>
+			<p><a href="${mmac.pro.prodectid }">删除</a></p></div>
 		  </li>
 	 	</c:forEach>   
 		
 		</ul>		
 	 <div class="Shopping_style">
-	 <div class="p-total">共<b>1</b>件商品　共计<strong>￥ 515.00</strong></div>
+	 <div class="p-total">共<b>${prodectsize }</b>件商品　共计<strong>￥ ${money }</strong></div>
 	  <a href="Shop_cart.html" title="去购物车结算" id="btn-payforgoods" class="Shopping">去购物车结算</a>
 	 </div>	 
    </div>

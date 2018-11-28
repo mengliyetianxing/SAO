@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%
     String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -28,20 +29,7 @@
 <body>
 <head>
  <div id="header_top">
-  <div id="top">
-    <div class="Inside_pages">
-      <div class="Collection"><a href="#" class="green">请登录</a> <a href="#" class="green">免费注册</a></div>
-	<div class="hd_top_manu clearfix">
-	  <ul class="clearfix">
-	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">首页</a></li> 
-	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
-	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
-       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
-        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>(23)</b></a></li>	
-	  </ul>
-	</div>
-    </div>
-  </div>
+  <c:import url="Top.jsp"></c:import>
   <div id="header"  class="header page_style">
   <div class="logo"><a href="index.html"><img src="images/logo.png" /></a></div>
   <!--结束图层-->
@@ -64,14 +52,17 @@
    <div class="dorpdown-layer">
     <div class="spacer"></div>
 	 <!--<div class="prompt"></div><div class="nogoods"><b></b>购物车中还没有商品，赶紧选购吧！</div>-->
-	 <ul class="p_s_list">	   
-		<li>
-		    <div class="img"><img src="images/tianma.png"></div>
-		    <div class="content"><p class="name"><a href="#">产品名称</a></p><p>颜色分类:紫花8255尺码:XL</p></div>
+	 <ul class="p_s_list">	
+	 	<c:forEach items="${user.mmac }" var="mmac">
+	 		<li>
+		    <div class="img"><img src="${mmac.prodectid.prodectmainimage }"></div>
+		    <div class="content"><p class="name"><a href="#">${mmac.prodectid.prodectname }</a></p><p>${mmac.prodectid.categoryid.categoryname }</p></div>
 			<div class="Operations">
-			<p class="Price">￥55.00</p>
+			<p class="Price">${mmac.prodectid.prodectprice }</p>
 			<p><a href="#">删除</a></p></div>
 		  </li>
+	 	</c:forEach>   
+		
 		</ul>		
 	 <div class="Shopping_style">
 	 <div class="p-total">共<b>1</b>件商品　共计<strong>￥ 515.00</strong></div>

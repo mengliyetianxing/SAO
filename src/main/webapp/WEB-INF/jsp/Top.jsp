@@ -48,14 +48,14 @@
     </c:if>
     
     <c:if test="${not empty user }">
-      <div class="Collection"><p>尊敬的<a href="#">${user.username }</a>,<span id="topp"></span></p></div>
+      <div class="Collection"><p>尊敬的<a href="mmalluser/AcountManage">${user.username }</a>,<span id="topp"></span></p></div>
     		<div class="hd_top_manu clearfix">
 	  <ul class="clearfix">
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href=index>首页</a></li> 
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
-        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>(23)</b></a></li>	
+        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>${user.mmac.cartquantity }</b></a></li>	
 	  <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="mmalluser/Introduction">退出登录</a></li>
 	  </ul>
 	</div>

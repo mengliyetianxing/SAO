@@ -65,7 +65,7 @@
 		
 		</ul>		
 	 <div class="Shopping_style">
-	 <div class="p-total">共<b>${prodectsize }</b>件商品　共计<strong>￥ ${money }</strong></div>
+	 <div class="p-total">共<b value="0">${prodectsize }</b>件商品　共计<strong>￥<c:if test="${empty money }">0.00</c:if> <c:if test="${not empty money }">${money }</c:if></strong></div>
 	  <a href="Shop_cart.html" title="去购物车结算" id="btn-payforgoods" class="Shopping">去购物车结算</a>
 	 </div>	 
    </div>

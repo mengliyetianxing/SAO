@@ -53,7 +53,6 @@ public class MmalluserController {
 			}
 			s.setAttribute("money", money);
 			}
-			
 			if("1".equals(role)) {
 				return "index";
 			}else if("2".equals(role)) {

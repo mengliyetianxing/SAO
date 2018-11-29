@@ -55,6 +55,22 @@ public class MmalluserService implements IMmalluserService {
 	
 	
 	
+	@Override
+	public int addUser(Mmalluser mu) {
+		
+		mu.setUserpassword(MD5.md5(mu.getUserpassword()));
+		
+		return md.addUser(mu);
+	}
+
+
+
+	@Override
+	public String user(String username,String userrole) {
+		
+		return md.username(username, userrole);
+	}
+	
 }
 
 

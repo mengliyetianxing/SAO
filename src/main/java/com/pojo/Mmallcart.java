@@ -5,7 +5,7 @@ import java.util.Date;import java.util.List;
 public class Mmallcart{
 	private int cartid;
 	private Mmalluser userid;
-	private Mmallprodect prodectid;
+	private List<Cartandprodect> prodectid;
 	private int cartquantity;
 	private String cartchecked;
 	private Date cartcreatetime;
@@ -21,10 +21,10 @@ public class Mmallcart{
 	public Mmalluser getUserid(){
 		return userid;
 	}
-	public void setProdectid(Mmallprodect prodectid){
+	public void setProdectid(List<Cartandprodect> prodectid){
 		this.prodectid=prodectid;
 	}
-	public Mmallprodect getProdectid(){
+	public List<Cartandprodect> getProdectid(){
 		return prodectid;
 	}
 	public void setCartquantity(int cartquantity){
@@ -50,5 +50,5 @@ public class Mmallcart{
 	}
 	public Date getCartupdatetime(){
 		return cartupdatetime;
-	}	public Mmallcart(int cartid, Mmalluser userid, Mmallprodect prodectid, int cartquantity, String cartchecked,			Date cartcreatetime, Date cartupdatetime) {		super();		this.cartid = cartid;		this.userid = userid;		this.prodectid = prodectid;		this.cartquantity = cartquantity;		this.cartchecked = cartchecked;		this.cartcreatetime = cartcreatetime;		this.cartupdatetime = cartupdatetime;	}	public Mmallcart() {	}	@Override	public String toString() {		return "Mmallcart [cartid=" + cartid + ", userid=" + userid + ", prodectid=" + prodectid + ", cartquantity="				+ cartquantity + ", cartchecked=" + cartchecked + ", cartcreatetime=" + cartcreatetime				+ ", cartupdatetime=" + cartupdatetime + "]";	}	
+	}	public Mmallcart(int cartid, Mmalluser userid, List<Cartandprodect> prodectid, int cartquantity, String cartchecked,			Date cartcreatetime, Date cartupdatetime) {		super();		this.cartid = cartid;		this.userid = userid;		this.prodectid = prodectid;		this.cartquantity = cartquantity;		this.cartchecked = cartchecked;		this.cartcreatetime = cartcreatetime;		this.cartupdatetime = cartupdatetime;	}	public Mmallcart() {	}	@Override	public String toString() {		return "Mmallcart [cartid=" + cartid + ", userid=" + userid + ", prodectid=" + prodectid + ", cartquantity="				+ cartquantity + ", cartchecked=" + cartchecked + ", cartcreatetime=" + cartcreatetime				+ ", cartupdatetime=" + cartupdatetime + "]";	}	
 }

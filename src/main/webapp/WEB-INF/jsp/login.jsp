@@ -9,6 +9,7 @@
 <!DOCTYPE html >
 <html>
 <head>
+${res }
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>登陆</title>
@@ -56,7 +57,7 @@ $(function(){
 <div class="l_main">
     <div class="l_bttitle2"> 
         <!-- <h2>登录</h2>-->
-        <h2><a href="#">< 返回首页</a></h2>
+        <h2><a href="index">< 返回首页</a></h2>
     </div>
     <div class="loginbox fl">
         <div class="tab">

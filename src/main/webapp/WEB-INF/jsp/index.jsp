@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%
     String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-    
-   
-    %>
+%>
 <!DOCTYPE html >
 <html>
 
@@ -14,7 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="css/common.css" rel="stylesheet" type="text/css" />
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="js/jquery-3.2.1.js" type="text/javascript"></script>
 <script src="js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>
 <script src="js/common_js.js" type="text/javascript"></script>
 <script src="js/footer.js" type="text/javascript"></script>
@@ -24,20 +23,7 @@
 <body>
 <head>
  <div id="header_top">
-  <div id="top">
-    <div class="Inside_pages">
-      <div class="Collection"><a href="#" class="green">请登录</a> <a href="#" class="green">免费注册</a></div>
-	<div class="hd_top_manu clearfix">
-	  <ul class="clearfix">
-	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">首页</a></li> 
-	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
-	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
-       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
-        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>(23)</b></a></li>	
-	  </ul>
-	</div>
-    </div>
-  </div>
+	<c:import url="Top.jsp"></c:import>
   <div id="header"  class="header page_style">
   <div class="logo"><a href="index.html"><img src="images/logo.png" /></a></div>
   <!--结束图层-->
@@ -79,15 +65,15 @@
 <!--菜单栏-->
 	<div class="Navigation" id="Navigation">
 		 <ul class="Navigation_name">
-			<li><a href="Home.html">首页</a></li>
-            <li class="hour"><span class="bg_muen"></span><a href="#">半小时生活圈</a></li>
-			<li><a href="#">你身边的超市</a></li>
+			<li><a href="index">首页</a></li>
+            <li><a href="https://www.dytt8.net">半小时生活圈</a></li>
+			<li><a href="https://chaoshi.tmall.com">你身边的超市</a></li>
 			<li><a href="#">预售专区</a><em class="hot_icon"></em></li>
 			<li><a href="products_list.html">商城</a></li>
 			
 			<li><a href="#">好评商户</a></li>
 			<li><a href="#">热销活动</a></li>
-			<li><a href="Brands.html">联系我们</a></li>
+			<li><a href="https://consumerservice.taobao.com">联系我们</a></li>
 		 </ul>			 
 		</div>
 	<script>$("#Navigation").slide({titCell:".Navigation_name li",trigger:"click"});</script>
@@ -783,7 +769,7 @@
 			<div class="cartBox">
        		<div class="bjfff"></div>
 			<div class="QR_code">
-			 <p><img src="images/erweim.jpg" width="180px" height="180px" /></p>
+			 <p><img src="images/5.jpg" width="180px" height="180px" /></p>
 			 <p>微信扫一扫，关注我们</p>
 			</div>		
 			</div>

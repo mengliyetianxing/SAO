@@ -1,5 +1,6 @@
 package com.SAO;
 
+import org.apache.commons.mail.HtmlEmail;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,6 +12,13 @@ import org.springframework.context.annotation.ComponentScan;
 public class SaoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SaoApplication.class, args);
+		SpringApplication.run(SaoApplication.class, args);		
+			
+		
+		
 	}
+	
+		
+	
+	
 }

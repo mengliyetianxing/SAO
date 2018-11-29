@@ -30,6 +30,31 @@ public class MmalluserService implements IMmalluserService {
 		Mmalluser mmalluser = md.checkUser(mu);
 		return mmalluser;
 	}
+
+	//邮箱找回密码
+	@Override
+	public Mmalluser getUserByEmail(String useremail) {
+		
+		return md.getUserByEmail(useremail);
+	}
+
+	//手机找回密码
+	@Override
+	public Mmalluser getUserByPhone(String userphone) {
+		
+		return md.getUserByPhone(userphone);
+	}
+
+	//重置密码
+	@Override
+	public int updatePwd(int userid,String userpassword) {
+		
+		return md.updatePwd(userid,userpassword);
+	}
+	
+	
+	
+	
 }
 
 

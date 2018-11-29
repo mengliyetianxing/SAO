@@ -24,13 +24,12 @@
 <script src="js/iCheck.js" type="text/javascript"></script>
 <script src="js/custom.js" type="text/javascript"></script>
 <script src="layer/layer.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 <title>用户中心-账户管理</title>
 </head>
 <script type="text/javascript">
-	$(document).ready(function(){
-		$("#time").html(new Date().toLocaleDateString()+" "+new Date().toLocaleTimeString());
-	});
+window.onload = function(){
+	document.getElementById("time").innerHTML=new Date().toLocaleDateString()+" "+new Date().toLocaleTimeString();
+}
 </script>
 <body>
 <head>

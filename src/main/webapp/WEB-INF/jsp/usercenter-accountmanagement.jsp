@@ -29,7 +29,7 @@
 </head>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("#time").html(Date.now());
+		$("#time").html(new Date().toLocaleDateString()+" "+new Date().toLocaleTimeString());
 	});
 </script>
 <body>

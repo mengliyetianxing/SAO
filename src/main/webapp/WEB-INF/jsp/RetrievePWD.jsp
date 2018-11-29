@@ -20,8 +20,47 @@
 <script src="js/footer.js" type="text/javascript"></script>
 <script src="js/iCheck.js" type="text/javascript"></script>
 <script src="js/custom.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 <title>找回密码</title>
 </head>
+<script type="text/javascript">
+
+function determine() {					
+	$.post("mmalluser/code",function(data){							
+		var code1=document.getElementById("code");
+		var arr = new Array();
+		arr = data.split(",");		
+ 		var code2=arr[0]; 		
+ 		var userid=arr[1]; 		
+		if(code1.value.toUpperCase()==code2.toUpperCase()){
+			window.location.href="mmalluser/toresetpwd?userid="+userid;
+		}else{
+			var a=document.getElementById("abc");
+				a.innerHTML="验证码输入错误";
+				a.style.color="red";
+		}				
+	})					
+}
+function determine2() {		
+	$.post("mmalluser/code",function(data){						
+		var code1=document.getElementById("code2");
+		var arr = new Array();
+		arr = data.split(",");		
+ 		var code2=arr[0]; 		
+ 		var userid=arr[1]; 	
+		if(code1.value.toUpperCase()==code2.toUpperCase()){
+			window.location.href="mmalluser/toresetpwd?userid="+userid;
+		}else{
+			var a=document.getElementById("abc2");
+				a.innerHTML="验证码输入错误";
+				a.style.color="red";
+		}				
+	})					
+}
+
+
+
+</script>
 
 <body>
 <head>
@@ -94,42 +133,53 @@
 	<script>$("#Navigation").slide({titCell:".Navigation_name li",trigger:"click"});</script>
     </div>
 </head>
+
+<form action="mmalluser/findpwd" method="post" >
 <!--找回密码-->
 <div class="page_style">
  <div class="zhmm_style">
    <div class="title_name">密码找回</div>
    <ul class="select_style clearfix">
+   </br>
+<!--     <li> <label class="labelname"> -->
+<!--           <input type="radio" name="RadioGroup1" value="1" id="RadioGroup1_0" /> <span>身份证号码</span></label> -->
+<!--         <label> -->
+<!--         <div class="file-uploader-wrap">  -->
+<!-- 　　　　　　<input type="file" class="file-uploader" name="uploadDataField" id="FileUploader"/>  -->
+<!-- 　　　　　　<div class="file-uploader-wrap-fake">  -->
+<!-- 　　　　　　<input type="text" id="PathDisplayer" class="input-text" disabled />  -->
+<!-- 　　　　　　　　<a href="javascript:void(0)" class="link-btn" >选择文件</a>  -->
+<!-- 　　　　　　</div>  -->
+<!-- 　　　　</div> -->
+<!--  <input name="" type="submit"  value="上传" class=" zh_btn sc_btn"/> -->
+<!-- </label>  -->
+<!--         </li> -->
     <li> <label class="labelname">
-          <input type="radio" name="RadioGroup1" value="1" id="RadioGroup1_0" /> <span>身份证号码</span></label>
-        <label>
-        <div class="file-uploader-wrap"> 
-　　　　　　<input type="file" class="file-uploader" name="uploadDataField" id="FileUploader"/> 
-　　　　　　<div class="file-uploader-wrap-fake"> 
-　　　　　　<input type="text" id="PathDisplayer" class="input-text" disabled /> 
-　　　　　　　　<a href="javascript:void(0)" class="link-btn" >选择文件</a> 
-　　　　　　</div> 
-　　　　</div>
- <input name="" type="submit"  value="上传" class=" zh_btn sc_btn"/>
-</label> 
-        </li>
-    <li> <label class="labelname">
-          <input type="radio" name="RadioGroup1" value="1" id="RadioGroup1_1" /> <span>邮箱找回</span></label>
+          <input type="radio" name="RadioGroup1" value="1" id="RadioGroup1_1" /> <span>邮箱找回</span>
+          </label>
          <label>
-         <input name="" type="text"  class="addtext" style=" width:230px;"/>
-         <input name="" type="submit" value="发送" class=" zh_btn fs_btn"/>
+         <input name="useremail" value="${useremail}" type="text"  class="addtext" style=" width:230px;"/>
+         <input name="" type="submit" value="验证身份" class=" zh_btn fs_btn"/><span style="color: red;"> ${mess1} </span></br>
+                            请输入验证码 <input id="code" style=" width:230px;">  <button type="button" onclick="determine()">进行找回</button><span id="abc"></span>
          </label>
         </li>
+        </hr>
+        </br>
     <li> <label class="labelname">
-          <input type="radio" name="RadioGroup1" value="1" id="RadioGroup1_2" /> <span>手机找回</span></label>         
+          <input type="radio" name="RadioGroup1" value="1" id="RadioGroup1_2" /> <span>手机找回</span>
+          </label>         
           <label>
-         <input name="" type="text"  class="addtext" style=" width:230px;"/>
-         <input name="" type="submit"  value="验证身份" class=" zh_btn yz_btn"/>
+         <input name="userphone" value="${userphone }" type="text"  class="addtext" style=" width:230px;"/>
+         <input name="" type="submit"  value="验证身份" class=" zh_btn yz_btn"/><span style="color: red;"> ${mess2} </span></br>
+                          请输入验证码 <input id="code2" style=" width:230px;">  <button type="button" onclick="determine2()">进行找回</button><span id="abc2"></span>
          </label>
         </li>
    </ul>
  </div>
 
 </div>
+</form>
+
 <!--网站地图-->
 <div class="fri-link-bg clearfix">
     <div class="fri-link">

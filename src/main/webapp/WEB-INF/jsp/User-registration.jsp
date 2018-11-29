@@ -45,6 +45,95 @@ $(function(){
 		})
 	})
 })
+<<<<<<< HEAD
+/*买家 */
+function yanzhen(){	
+	var username1=document.getElementById("username1").value;		
+	var userrole1=document.getElementById("userrole1").value;												
+	$.post("mmalluser/listusername?username="+username1+"&userrole="+userrole1,function(data){						
+			if(data=='1'){				
+			var a=document.getElementById("abc");
+			a.innerHTML="账号已注册";
+			a.style.color="red";
+			xxx=false;
+		}else{
+			var a=document.getElementById("abc");
+			a.innerHTML="账号可用";
+			a.style.color="green";
+			xxx=true;
+		}			
+	})				
+}
+function than(){
+	var pwd1=document.getElementById("pwd1").value;	
+	var pwd2=document.getElementById("pwd2").value;
+	if(pwd1==pwd2){
+		var a=document.getElementById("aaa");
+		a.innerHTML="";
+		aaa=true;	
+	}else{		
+		var a=document.getElementById("aaa");
+		a.innerHTML="二次密码不匹配";
+		a.style.color="red";	
+		aaa=false;
+	}			
+}
+function comit(){
+	
+	 if(xxx&aaa){		 
+		 return true;
+	 }else{
+		 alert("账号已注册");
+		 return false;		 
+	 }	
+}
+/*邮箱验证 */
+function dianji(){
+	var useremail =document.getElementById("useremail1").value;
+		if(useremail==""&-1==useremail.indexOf("@")){
+			alert("邮箱格式不正确")
+			return;
+		}
+	$.post("mmalluser/emailvalidation?useremail="+useremail,function(data){})		
+   	 alert("验证码已经成功发送，请注意查收！");
+	    var validCode=true;        
+        var time=30;
+        var code=document.getElementById("button1");       
+        if (validCode){
+            validCode=false;
+             code.style.color="black"; 
+            var t=setInterval(function(){         
+            	time--;
+            	code.innerHTML=time+"秒";//这里
+            if (time==0) {
+                clearInterval(t);        
+            	code.innerHTML="重发";//同上
+                validCode=true;
+                code.style.color="gray"; 
+            }
+        },1000)
+        }      	
+}
+/* 卖家 */
+function yanzhen2(){	
+	var username2=document.getElementById("username2").value;	
+	var userrole2=document.getElementById("userrole2").value;												
+	$.post("mmalluser/listusername?username="+username2+"&userrole="+userrole2,function(data){						
+			if(data=='1'){				
+			var a=document.getElementById("acb");
+			a.innerHTML="账号已注册";
+			a.style.color="red";
+			xxx=false;
+		}else{
+			
+			var a=document.getElementById("acb");
+			a.innerHTML="账号可用";
+			a.style.color="green";
+			xxx=true;
+		}			
+	})				
+}
+=======
 
 
 
@@ -140,6 +229,7 @@ function yanzhen2(){
 	})				
 }
 
+>>>>>>> branch 'master' of https://github.com/mengliyetianxing/SAO
 function than2(){
 	var pwd3=document.getElementById("pwd3").value;
 	var pwd4=document.getElementById("pwd4").value;
@@ -329,7 +419,11 @@ ${res}
 					<p>
 						<input type="submit" class="loginbtn" value="注 册">
 					</p>
+<<<<<<< HEAD
+					<!-- </form> -->
+=======
 					</form>
+>>>>>>> branch 'master' of https://github.com/mengliyetianxing/SAO
 				</div>
 			</div>
 		</div>

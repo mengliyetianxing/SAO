@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <%
+
+   <%
     String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
     
@@ -23,9 +24,14 @@
 <script src="js/iCheck.js" type="text/javascript"></script>
 <script src="js/custom.js" type="text/javascript"></script>
 <script src="layer/layer.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 <title>用户中心-账户管理</title>
 </head>
-
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#time").html(Date.now());
+	});
+</script>
 <body>
 <head>
  <div id="header_top">
@@ -65,7 +71,7 @@
 		
 		</ul>		
 	 <div class="Shopping_style">
-	 <div class="p-total">共<b value="0">${prodectsize }</b>件商品　共计<strong>￥<c:if test="${empty money }">0.00</c:if> <c:if test="${not empty money }">${money }</c:if></strong></div>
+	 <div class="p-total">共<c:if test="${empty prodectsize }">0</c:if><c:if test="${not empty prodectsize }"><b>${prodectsize }</b></c:if>件商品　共计<strong>￥<c:if test="${empty money }">0.00</c:if> <c:if test="${not empty money }">${money }</c:if></strong></div>
 	  <a href="Shop_cart.html" title="去购物车结算" id="btn-payforgoods" class="Shopping">去购物车结算</a>
 	 </div>	 
    </div>
@@ -99,8 +105,8 @@
       <div class="background_img"></div>
       </div>
       <div class="user_name">
-       <p><span class="name">化海天堂</span><a href="#">[修改密码]</a></p>
-       <p>访问时间：2016-1-21 10:23</p>
+       <p><span class="name">${user.username }</span><a href="mmalluser/resetpwd">[修改密码]</a></p>
+       <p>访问时间：<span id="time"></span></p>
        </div>           
      </div>
      <div class="sideMen">

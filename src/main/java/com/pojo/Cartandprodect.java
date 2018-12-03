@@ -3,10 +3,10 @@ package com.pojo;
 public class Cartandprodect {
 	private Mmallprodect pro;
 	private int cartquantity;
-	public Mmallprodect getProdectid() {
+	public Mmallprodect getPro() {
 		return pro;
 	}
-	public void setProdectid(Mmallprodect prodectid) {
+	public void setPro(Mmallprodect prodectid) {
 		this.pro = prodectid;
 	}
 	public int getCartquantity() {
@@ -15,9 +15,9 @@ public class Cartandprodect {
 	public void setCartquantity(int cartquantity) {
 		this.cartquantity = cartquantity;
 	}
-	public Cartandprodect(Mmallprodect prodectid, int cartquantity) {
+	public Cartandprodect(Mmallprodect pro, int cartquantity) {
 		super();
-		this.pro = prodectid;
+		this.pro = pro;
 		this.cartquantity = cartquantity;
 	}
 	public Cartandprodect() {

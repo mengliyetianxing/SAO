@@ -49,7 +49,7 @@ public class MmalluserController {
 			s.setAttribute("prodectsize", list.size());
 			BigDecimal money = new BigDecimal("0.00");
 			for (Cartandprodect c : list) {
-				money.add(c.getProdectid().getProdectprice().multiply(new BigDecimal(c.getCartquantity())));
+				money.add(c.getPro().getProdectprice().multiply(new BigDecimal(c.getCartquantity())));
 			}
 			s.setAttribute("money", money);
 			}

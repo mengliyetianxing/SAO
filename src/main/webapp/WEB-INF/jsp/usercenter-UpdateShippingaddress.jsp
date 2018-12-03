@@ -26,7 +26,7 @@
 <title>用户中心-收货地址</title>
 </head>
 <script type="text/javascript">
-	var flag = false;
+	var flag = true;
 	
 	window.onload = function(){
 		document.getElementById("time").innerHTML=new Date().toLocaleDateString()+" "+new Date().toLocaleTimeString();
@@ -189,14 +189,14 @@
  <!--地址管理-->
  
   <div class="user_address_style">
-  <form action="mmallshipping/addaddress" method="post" onsubmit="return Tcheck()">
+  <form action="mmallshipping/updateaddress" method="post" onsubmit="return Tcheck()">
     <div class="title_style"><em></em>地址管理</div> 
    <div class="add_address">
-    <span class="name">添加送货地址</span>
+    <span class="name">修改送货地址</span>
     <table cellpadding="0" cellspacing="0" width="100%">
-     <tr><td class="label_name">收&nbsp;货&nbsp;&nbsp;人：</td><td><input name="name" type="text"  class="add_text" style=" width:100px" required="required" value="${user.username }"/><i>*</i></td></tr>
+     <tr><td class="label_name">收&nbsp;货&nbsp;&nbsp;人：</td><td><input name="name" type="text"  class="add_text" style=" width:100px" required="required" value="${shi.receivename }"/><i>*</i></td></tr>
      <tr><td class="label_name">所在地区：</td><td>
-                <input type="text" value="" id="addr-show" required="required" name="address">
+                <input type="text" value="${shi.receiveprovince }-${shi.receivecity }-${shi.receivedistrict }" id="addr-show" required="required" name="address">
             
             <!--省份选择-->
             <select id="prov" onchange="showCity(this)">
@@ -214,32 +214,16 @@
             </select>
             <button type="button" class="btn met1" onClick="showAddr()">确定</button>
   <i>*</i></td></tr>
-     <tr><td class="label_name">街道地址：</td><td><textarea name="jiedao" cols="" rows="" style=" width:500px; height:100px; margin:5px 0px" required="required"></textarea><i>*</i></td></tr>
-     <tr><td class="label_name">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编：</td><td><input name="youbian" type="text" class="add_text" style=" width:100px" required="required" id="you" onblur="youcheck()"/><i>*</i></td></tr>
-     <tr><td class="label_name">手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机：</td><td><input name="shouji" type="text" class="add_text" style=" width:200px"/>&nbsp;&nbsp;(选填)</td></tr>
+     <tr><td class="label_name">街道地址：</td><td><textarea name="jiedao" cols="" rows="" style=" width:500px; height:100px; margin:5px 0px" required="required">${shi.receiveaddress }</textarea><i>*</i></td></tr>
+     <tr><td class="label_name">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编：</td><td><input name="youbian" type="text" class="add_text" style=" width:100px" required="required" id="you" onblur="youcheck()" value="${shi.receivezip }"/><i>*</i></td></tr>
+     <tr><td class="label_name">手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机：</td><td><input name="shouji" type="text" class="add_text" style=" width:200px" value="${shi.receivemobile }" required="required"/>&nbsp;&nbsp;(选填)</td></tr>
      <tr><td class="label_name">固定电话：</td>
      <td><input name="qu" type="text" class="add_text" style="width:60px" placeholder="区号"/>-<input name="zuoji" type="text" class="add_text" style="width:100px" placeholder="电话号码"/>-<input name="fenji" type="text" class="add_text" style="width:60px" placeholder="分机号"/>&nbsp;&nbsp;(选填)</td></tr>
      <tr class="moren_dz" style="color: #999"><td class="label_name"></td><td><label><input name="" type="checkbox" value="" />设置为默认地址</label></td></tr>
      <tr><td colspan="2" class="center"><input type="submit" value="保存"  class="add_dzbtn" /><input name="" type="reset" value="清空"  class="reset_btn"/><span id="err" style="color: red"></span></td></tr>
     </table>
    </div>
-   <!--用户地址-->
-   <div class="address_content">
-    <div class="address_prompt">以添加了${size }条地址</div>
-    <table cellpadding="0" cellspacing="0" class="user_address" width="100%">
-    <thead>
-     <tr class="label"><td width="80px;">收货人</td><td width="180px;">所在地</td><td width="220px;">详细地址</td><td width="80px;">邮编</td><td width="120px;">电话手机</td><td width="180px;">发票抬头</td><td width="80px;">操作</td></tr>
-     </thead>
-     <tbody>
-      <c:forEach items="${list }" var="l">
-      <tr>
-            	<td>${l.receivename }</td><td>${l.receiveprovince }${l.receivecity }${l.receivedistrict }</td><td>${l.receiveaddress }</td><td>${l.receivezip }</td><td>${l.receivemobile }</td><td>个人</td><td><a href="mmallshipping/update?id=${l.shippingid }">修改</a> | <a href="javascript:con(${l.shippingid })">删除</a></td>
-      </tr>
-      </c:forEach>
-      
-     </tbody>
-    </table>
-   </div> 
+   <input name="id" value="${shi.shippingid }" type="hidden">
    </form> 
   </div>
   

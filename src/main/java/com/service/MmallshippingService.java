@@ -38,5 +38,15 @@ public class MmallshippingService implements IMmallshipping {
 	public int delMmallshippingById(int id) {
 		return ms.delMmallshippingById(id);
 	}
+
+	@Override
+	public Mmallshipping getMmallshippingById(int id) {
+		return ms.getMmallshippingById(id);
+	}
+
+	@Override
+	public int updateAddress(Mmallshipping m) {
+		return ms.updateAddress(m);
+	}
 	
 }

@@ -13,4 +13,7 @@ public interface IMmallshipping {
 
 	public int delMmallshippingById(int id);
 	
+	public Mmallshipping getMmallshippingById(int id);
+	
+	public int updateAddress(Mmallshipping m);
 }

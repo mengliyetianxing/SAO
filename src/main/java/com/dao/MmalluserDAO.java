@@ -16,6 +16,7 @@ public interface MmalluserDAO {
 	//登陆验证
 	@Select("select * from mmalluser where username=#{username} and userpassword=#{userpassword} and userrole=#{userrole}")
 	@Results({
+		@Result(column="userid",property="userid",id=true),
 		@Result(column="userid",property="mmac",one=@One(select="com.dao.MmallcartDAO.getMmallcartByUserId"))
 	})
 	public Mmalluser checkUser(Mmalluser mu);

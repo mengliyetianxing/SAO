@@ -1,13 +1,11 @@
+<!DOCTYPE html >
+<html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
     String path = request.getContextPath();
-	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-    
-   
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";    
     %>
-<!DOCTYPE html >
-<html>
 <head>
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -117,8 +115,8 @@
       <dt class="transaction_manage"><em class="icon_1"></em>订单管理</dt>
       <dd>
         <ul>
-          <li> <a href="用户中心-我的订单.html">我的订单</a></li>
-          <li> <a href="用户中心-收货地址.html">收货地址</a></li>
+          <li> <a href="mmallorder/Myorder">我的订单</a></li>
+          <li> <a href="mmallshipping/address">收货地址</a></li>
           <li> <a href="用户中心-产品预订.html">产品预订</a></li>
         </ul>
       </dd>

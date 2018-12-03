@@ -104,7 +104,7 @@ window.onload = function(){
       <div class="background_img"></div>
       </div>
       <div class="user_name">
-       <p><span class="name">${user.username }</span><a href="mmalluser/resetpwd">[修改密码]</a></p>
+       <p><span class="name">${user.username }</span><a href="mmalluser/toresetpwd">[修改密码]</a></p>
        <p>访问时间：<span id="time"></span></p>
        </div>           
      </div>
@@ -114,8 +114,8 @@ window.onload = function(){
       <dt class="transaction_manage"><em class="icon_1"></em>订单管理</dt>
       <dd>
         <ul>
-          <li> <a href="用户中心-我的订单.html">我的订单</a></li>
-          <li> <a href="用户中心-收货地址.html">收货地址</a></li>
+          <li> <a href="mmallorder/Myorder">我的订单</a></li>
+          <li> <a href="mmallshipping/address">收货地址</a></li>
           <li> <a href="#">缺货登记</a></li>
         </ul>
       </dd>

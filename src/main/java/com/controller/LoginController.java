@@ -14,7 +14,9 @@ public class LoginController {
 	}
 	//前往首页
 	@RequestMapping("/index")
-	public String toIndex(HttpServletRequest req) {
+	public String toIndex() {
 		return "index";
 	}
+	
+	
 }

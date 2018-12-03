@@ -13,12 +13,6 @@ public class SaoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SaoApplication.class, args);		
-			
-		
-		
 	}
-	
-		
-	
 	
 }

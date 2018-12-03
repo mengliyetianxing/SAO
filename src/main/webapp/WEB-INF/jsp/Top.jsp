@@ -12,23 +12,22 @@
 <meta charset="UTF-8">
 
 <title>Insert title here</title>
-<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 </head>
 <script type="text/javascript">
-	$(document).ready(function(){
+	window.onload = function(){
 		var time = new Date().getHours();
 		if(time>=8&&time<11){
-			$("#topp").html("早上好");
+			document.getElementById("topp").innerHTML="早上好";
 		}else if(time>=11&&time<13){
-			$("#topp").html("中午好");
+			document.getElementById("topp").innerHTML="中午好";
 		}else if(time>=13&&time<19){
-			$("#topp").html("下午好");
+			document.getElementById("topp").innerHTML="下午好";
 		}else if(time>=19&&time<=24){
-			$("#topp").html("晚上好");
+			document.getElementById("topp").innerHTML="晚上好";
 		}else{
-			$("#topp").html("晚上好");
+			document.getElementById("topp").innerHTML="晚上好";
 		}
-	});
+	}
 </script>
 <body>
 	  <div id="top">

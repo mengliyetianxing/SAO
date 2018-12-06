@@ -12,6 +12,7 @@ import com.pojo.Mmallprodect;
 import com.pojo.Mmalluser;
 import com.service.IMmallcartandprodect;
 import com.service.IMmallprodect;
+import com.service.IMmallshipping;
 
 @Controller
 @RequestMapping("/mmallprodect")
@@ -26,7 +27,12 @@ public class MmallprodectController {
 	public void setCapSer(IMmallcartandprodect capSer) {
 		this.capSer = capSer;
 	}
+	@Autowired
+	IMmallshipping shiSer;
 	
+	public void setShiSer(IMmallshipping shiSer) {
+		this.shiSer = shiSer;
+	}
 
 	//去到商品详情页
 	@RequestMapping("/toprodectdetail")
@@ -43,9 +49,7 @@ public class MmallprodectController {
 		Mmallprodect pro = proSer.getMmallprodectById(Integer.valueOf(prodectid));
 		Mmalluser user = (Mmalluser) req.getSession().getAttribute("user");						
 		int num = capSer.addcart(Integer.valueOf(prodectid), Integer.valueOf(shuliang), user.getMmac().getCartid());
-		System.err.println(num);		
 		req.setAttribute("pro", pro);
-				
 		return "Productdetails";
 	}
 	
@@ -55,10 +59,11 @@ public class MmallprodectController {
 		req.setAttribute("prodectname", prodectname);
 		req.setAttribute("shuliang", shuliang);
 		req.setAttribute("prodectprice", new BigDecimal(prodectprice));
-		System.err.println(prodectname+"--"+shuliang+"--"+prodectprice);
-		
-		
-		
+		Mmalluser u = (Mmalluser) req.getSession().getAttribute("user");
+		if(u!=null) {
+			int uid = u.getUserid();
+			req.setAttribute("shi", shiSer.getLastOne());
+		}
 		return "Ordersconfirm";
 	}
 

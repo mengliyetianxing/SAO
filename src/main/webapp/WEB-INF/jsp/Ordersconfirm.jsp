@@ -16,6 +16,8 @@
 <link href="css/Orders.css" rel="stylesheet" type="text/css" />
 <link href="css/show.css" rel="stylesheet" type="text/css" />
 <link href="css/purebox-metro.css" rel="stylesheet" id="skin">
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
 <script src="js/jquery.min.1.8.2.js" type="text/javascript"></script>
 <script src="js/jquery.SuperSlide.2.1.12.js" type="text/javascript"></script>
 <script src="js/jquery.reveal.js" type="text/javascript"></script>
@@ -24,43 +26,70 @@
 <script src="js/footer2.js" type="text/javascript"></script>
 <title>订单确认页</title>
 </head>
+
+<c:if test="${empty user }">
+	<c:redirect url="../login"></c:redirect>
+</c:if>
+
  <script type="text/javascript">
         $(document).ready(function () {
             window.asd = $('.SlectBox').SumoSelect({ csvDispCount: 3 });
             window.test = $('.testsel').SumoSelect({okCancelInMulti:true });
+
         });
+        window.onload = function(){
+            
+            var time = new Date().getHours();
+    		if(time>=8&&time<11){
+    			document.getElementById("topp").innerHTML="早上好";
+    		}else if(time>=11&&time<13){
+    			document.getElementById("topp").innerHTML="中午好";
+    		}else if(time>=13&&time<19){
+    			document.getElementById("topp").innerHTML="下午好";
+    		}else if(time>=19&&time<=24){
+    			document.getElementById("topp").innerHTML="晚上好";
+    		}else{
+    			document.getElementById("topp").innerHTML="晚上好";
+    		}
+        }
     </script>
 <body>
 <div id="header_top">
-  <div id="top">
+<div id="top">
+	  
     <div class="Inside_pages">
-      <div class="Collection">下午好，欢迎光临商城<em></em><a href="#">收藏我们</a></div>
-	<div class="hd_top_manu clearfix">
+    
+    <c:if test="${empty user }">
+      <div class="Collection"><a href="login" class="green">请登录</a> <a href="registration" class="green">免费注册</a></div>
+   			<div class="hd_top_manu clearfix">
 	  <ul class="clearfix">
-	   <li class="hd_menu_tit zhuce" data-addclass="hd_menu_hover">欢迎光临本店！<a href="#" class="red">[请登录]</a> 新用户<a href="#" class="red">[免费注册]</a></li>
-	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的订单</a></li> 
-	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">购物车</a> </li>
-	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">联系我们</a></li>
-	   <li class="hd_menu_tit list_name" data-addclass="hd_menu_hover"><a href="#" class="hd_menu">客户服务</a>
-	    <div class="hd_menu_list">
-		   <ul>
-		    <li><a href="#">常见问题</a></li>
-			<li><a href="#">在线退换货</a></li>
-		    <li><a href="#">在线投诉</a></li>
-			<li><a href="#">配送范围</a></li>
-		   </ul>
-		</div>	   
-	   </li>
-       <li class="hd_menu_tit phone_c" data-addclass="hd_menu_hover"><a href="#" class="hd_menu "><em class="iconfont icon-shouji"></em>手机版</a>
-	    <div class="hd_menu_list erweima">
-		   <ul>
-            <img src="images/erweima.jpg"  width="100px" height="100"/>
-		   </ul>
-		</div>	   
-	   </li>
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href=index>首页</a></li> 
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
+       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
+        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>(23)</b></a></li>	
 	  </ul>
 	</div>
+    </c:if>
+    
+    <c:if test="${not empty user }">
+      <div class="Collection"><p>尊敬的<a href="mmalluser/AcountManage">${user.username }</a>,<span id="topp"></span></p></div>
+    		<div class="hd_top_manu clearfix">
+	  <ul class="clearfix">
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href=index>首页</a></li> 
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
+       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
+        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>${user.mmac.cartquantity }</b></a></li>	
+	  <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="mmalluser/Introduction">退出登录</a></li>
+	  </ul>
+	</div>
+    
+    </c:if>
+    
+	
     </div>
+    
   </div>
   <!--顶部样式1-->
   <div id="header"  class="header page_style">
@@ -248,12 +277,12 @@
  <div class="Orders_style clearfix">
    <!--地址信息样式-->
    <div class="Address_info">
-    <div class="title_name">默认收货地址<a href="#">其他收货地址</a></div>
-    <ul>
-     <li><label>收件人姓名：</label>花海天堂</li>
-     <li><label>收件人地址：</label>四川成都武侯区创业路5号1单元302室</li>
-     <li><label>收件人电话：</label>12345678987</li>
-     <li><label>邮&nbsp;&nbsp;&nbsp;编：</label>123456</li>
+    <div class="title_name">默认收货地址<a href="mmallshipping/address">其他收货地址</a></div>
+     <ul>
+     <li><label>收件人姓名：</label>${shi.receivename }</li>
+     <li><label>收件人地址：</label>${shi.receiveprovince }${shi.receivecity }${shi.receivedistrict }${shi.receiveaddress }</li>
+     <li><label>收件人电话：</label>${shi.receivemobile }</li>
+     <li><label>邮&nbsp;&nbsp;&nbsp;编：</label>${shi.receivezip }</li>
     </ul>
    </div>
  </div>
@@ -298,9 +327,9 @@
          <li class="shiji_price"><label>实&nbsp;&nbsp;付&nbsp;&nbsp;款</label><i>￥</i><span>${prodectprice*shuliang }</span></li>    
         </ul> 
           
-        <div class="btn">
-        <input name="submit" type="submit" value="提交订单" class="submit_btn"/> 
-        <input name="" type="button"  onclick="#:window.history.go(-1);" value="返回购物车"  class="return_btn"/>
+        <div style="width: 100%;height: 100px;margin-top: 130px;margin-left: 30px">
+        <input name="submit" type="submit" value="提交订单" style="width: 130px;height: 50px;" class="btn"/> 
+        <input name="" type="button"  onclick="#:window.history.go(-1);" value="返回购物车"  class="btn" style="width: 130px;height: 50px;"/>
         </div>
         
          <div class="integral right">待订单确认后，你将获得<span>345</span>积分</div>

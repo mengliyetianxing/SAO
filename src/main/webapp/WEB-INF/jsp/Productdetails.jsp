@@ -16,6 +16,8 @@
 <link href="css/base.css" rel="stylesheet" type="text/css" />
 <link href="css/css.css" rel="stylesheet" type="text/css" />
 <link href="css/style1.css" rel="stylesheet" type="text/css" />
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 <script src="js/jquery.simpleGal.js"></script>
 <script type="text/javascript" src="js/jquery.imagezoom.min.js"></script>
@@ -188,6 +190,21 @@ function toorder(){
 	window.location.href="mmallprodect/toorder?prodectname="+prodectname+"&shuliang="+shuliang+"&prodectprice="+prodectprice;
 	
 }
+
+window.onload = function(){
+	var time = new Date().getHours();
+	if(time>=8&&time<11){
+		document.getElementById("topp").innerHTML="早上好";
+	}else if(time>=11&&time<13){
+		document.getElementById("topp").innerHTML="中午好";
+	}else if(time>=13&&time<19){
+		document.getElementById("topp").innerHTML="下午好";
+	}else if(time>=19&&time<=24){
+		document.getElementById("topp").innerHTML="晚上好";
+	}else{
+		document.getElementById("topp").innerHTML="晚上好";
+	}
+}
 </script>
 </head>
 
@@ -199,23 +216,42 @@ function toorder(){
 
 <!--头部导航-->
 <div class="nofix_head">
-    <div class="top wrapper">
-        <div class="float-lt margin-b10">
-            <ul>
-                <li><a href="" target="_blank" class=" colororange">请登录</a></li>
-                <li><a href="" target="_blank">注册会员</a></li>
-            </ul>
-        </div>
-        <div class="float-rt">
-            <ul>
-                <li><a href="" target="_blank">首页</a></li>
-                <li><a href="">我的小充</a></li>
-                <li><a id="linkOrder" href="">消息中心</a></li>
-                <li><a href="">商品分类</a></li>
-                <li>我的购物车<small class="num">20</small></li>
-            </ul>
-        </div>
+ <div id="top">
+	  
+    <div class="Inside_pages">
+    
+    <c:if test="${empty user }">
+      <div class="Collection"><a href="login" class="green">请登录</a> <a href="registration" class="green">免费注册</a></div>
+   			<div class="hd_top_manu clearfix">
+	  <ul class="clearfix">
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href=index>首页</a></li> 
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
+       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
+        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>(23)</b></a></li>	
+	  </ul>
+	</div>
+    </c:if>
+    
+    <c:if test="${not empty user }">
+      <div class="Collection"><p>尊敬的<a href="mmalluser/AcountManage">${user.username }</a>,<span id="topp"></span></p></div>
+    		<div class="hd_top_manu clearfix">
+	  <ul class="clearfix">
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href=index>首页</a></li> 
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
+       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
+        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>${user.mmac.cartquantity }</b></a></li>	
+	  <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="mmalluser/Introduction">退出登录</a></li>
+	  </ul>
+	</div>
+    
+    </c:if>
+    
+	
     </div>
+    
+  </div>
 </div>
 <!--头部导航END--> 
 

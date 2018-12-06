@@ -22,4 +22,6 @@ public interface MmallshippingDAO {
 	public Mmallshipping getMmallshippingById(int id);
 	@Update("update mmallshipping set userid=#{userid.userid},receivename=#{receivename},receivephone=#{receivephone,jdbcType=VARCHAR},receivemobile=#{receivemobile},receiveprovince=#{receiveprovince},receivecity=#{receivecity},receivedistrict=#{receivedistrict},receiveaddress=#{receiveaddress},receivezip=#{receivezip},shippingcreatetime=sysdate,shippingupdatetime=sysdate where shippingid=#{shippingid}")
 	public int updateAddress(Mmallshipping m);
+	@Select("select * from mmallshipping where shippingupdatetime = (select max(shippingupdatetime) from mmallshipping)")
+	public Mmallshipping getLastOne();
 }

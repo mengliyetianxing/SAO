@@ -29,7 +29,21 @@
 	var flag = false;
 	
 	window.onload = function(){
-		document.getElementById("time").innerHTML=new Date().toLocaleDateString()+" "+new Date().toLocaleTimeString();
+		var time = new Date().getHours();
+		if(time>=8&&time<11){
+			document.getElementById("topp").innerHTML="早上好";
+		}else if(time>=11&&time<13){
+			document.getElementById("topp").innerHTML="中午好";
+		}else if(time>=13&&time<19){
+			document.getElementById("topp").innerHTML="下午好";
+		}else if(time>=19&&time<=24){
+			document.getElementById("topp").innerHTML="晚上好";
+		}else{
+			document.getElementById("topp").innerHTML="晚上好";
+		}
+		
+  		document.getElementById("time").innerHTML=new Date().toLocaleDateString()+" "+new Date().toLocaleTimeString();
+
 	}
 	
 	function youcheck(){
@@ -59,7 +73,42 @@
 <body>
 <head>
  <div id="header_top">
-  <c:import url="Top.jsp"></c:import>
+   <div id="top">
+	  
+    <div class="Inside_pages">
+    
+    <c:if test="${empty user }">
+      <div class="Collection"><a href="login" class="green">请登录</a> <a href="registration" class="green">免费注册</a></div>
+   			<div class="hd_top_manu clearfix">
+	  <ul class="clearfix">
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href=index>首页</a></li> 
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
+       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
+        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>(23)</b></a></li>	
+	  </ul>
+	</div>
+    </c:if>
+    
+    <c:if test="${not empty user }">
+      <div class="Collection"><p>尊敬的<a href="mmalluser/AcountManage">${user.username }</a>,<span id="topp"></span></p></div>
+    		<div class="hd_top_manu clearfix">
+	  <ul class="clearfix">
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href=index>首页</a></li> 
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
+	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
+       <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
+        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>${user.mmac.cartquantity }</b></a></li>	
+	  <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="mmalluser/Introduction">退出登录</a></li>
+	  </ul>
+	</div>
+    
+    </c:if>
+    
+	
+    </div>
+    
+  </div>
   <div id="header"  class="header page_style">
   <div class="logo"><a href="index.html"><img src="images/logo.png" /></a></div>
   <!--结束图层-->
@@ -255,6 +304,7 @@
                 checkboxClass: 'icheckbox_flat-green',
                 radioClass: 'iradio_flat-green'
               });
+
             });
             </script>
  <!--网站地图-->

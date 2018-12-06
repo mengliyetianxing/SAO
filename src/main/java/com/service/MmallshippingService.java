@@ -48,5 +48,11 @@ public class MmallshippingService implements IMmallshipping {
 	public int updateAddress(Mmallshipping m) {
 		return ms.updateAddress(m);
 	}
+
+	@Override
+	public Mmallshipping getLastOne() {
+		
+		return ms.getLastOne();
+	}
 	
 }

@@ -1,5 +1,7 @@
 package com.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.One;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
@@ -16,4 +18,9 @@ public interface MmallprodectDAO {
 		@Result(column="prodectdetail",property="prodectdetail")
 	})
 	public Mmallprodect getMmallprodectById(int id);
+	
+	//获取所有商品集合
+		@Select("select * from mmallprodect")
+		public List<Mmallprodect> getAllProdect();
+
 }

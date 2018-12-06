@@ -11,6 +11,8 @@ public final class MD5 {
 	}
 	
     public static String md5(String str){
+    	if(str!=null)
         return DigestUtils.md5Hex(str);
+    	return null;
     }
 }

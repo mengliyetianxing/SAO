@@ -16,6 +16,7 @@ public interface MmallcartDAO {
 	//根据用户id找到购物车
 	@Select("select * from mmallcart where userid = #{id}")
 	@Results({
+		@Result(column="cartid",property="cartid",id=true),
 		@Result(column="cartid",property="prodectid",many=@Many(select="com.dao.MmallcartDAO.getCartandprodectBycartid"))
 	})
 	public Mmallcart getMmallcartByUserId(int id);

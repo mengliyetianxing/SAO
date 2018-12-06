@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import com.aliyuncs.exceptions.ClientException;
 import com.pojo.Cartandprodect;
+import com.pojo.Mmallcategory;
 import com.pojo.Mmallprodect;
 import com.pojo.Mmalluser;
+import com.service.IMmallcategory;
+import com.service.IMmallprodect;
 import com.service.IMmalluserService;
 import com.util.Common;
 import com.util.EmailText;
@@ -28,6 +31,17 @@ public class MmalluserController {
 
 	@Autowired
 	IMmalluserService is;
+	@Autowired
+	IMmallprodect proSer;			
+	public void setProSer(IMmallprodect proSer) {
+		this.proSer = proSer;
+	}
+	@Autowired
+	IMmallcategory catSer;			
+	public void setCatSer(IMmallcategory catSer) {
+		this.catSer = catSer;
+	}
+
 	
 	public void setIs(IMmalluserService is) {
 		this.is = is;
@@ -54,6 +68,15 @@ public class MmalluserController {
 			s.setAttribute("money", money);
 			}
 			if("1".equals(role)) {
+				List<Mmallprodect> prolist = proSer.getAllProdect();
+				req.setAttribute("prolist", prolist);
+				List<Mmallcategory> list0 = catSer.getMmallcategoryByFatherid(0);
+				List<Mmallcategory> list1 = catSer.getMmallcategoryByFatherid(1);
+				List<Mmallcategory> list2 = catSer.getMmallcategoryByFatherid(2);
+				req.setAttribute("list0", list0);
+				req.setAttribute("list1", list1);
+				req.setAttribute("list2", list2);
+				
 				return "index";
 			}else if("2".equals(role)) {
 				return "Storezone";
@@ -211,7 +234,7 @@ public class MmalluserController {
 		@RequestMapping("/emailvalidation")
 		public void emailvalidation(String useremail,HttpServletRequest req,HttpServletResponse resp,String youxiang) throws IOException{
 				String yzm= Common.getCode();
-				System.out.println(useremail);			
+				System.err.println(yzm);			
 			req.getSession().setAttribute("yzm",yzm);		
 			try {
 				Email.sendEmail(useremail, yzm);

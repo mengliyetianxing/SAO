@@ -5,8 +5,6 @@
    <%
     String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-    
-   
     %>
 <!DOCTYPE html >
 <html>
@@ -26,11 +24,7 @@
 <script src="layer/layer.js" type="text/javascript"></script>
 <title>用户中心-账户管理</title>
 </head>
-<script type="text/javascript">
-window.onload = function(){
-	document.getElementById("time").innerHTML=new Date().toLocaleDateString()+" "+new Date().toLocaleTimeString();
-}
-</script>
+
 <body>
 <head>
  <div id="header_top">
@@ -105,7 +99,7 @@ window.onload = function(){
       </div>
       <div class="user_name">
        <p><span class="name">${user.username }</span><a href="mmalluser/toresetpwd">[修改密码]</a></p>
-       <p>访问时间：<span id="time"></span></p>
+       <p>访问时间：<span id="totime"></span></p>
        </div>           
      </div>
      <div class="sideMen">
@@ -256,4 +250,9 @@ $('#cz_Records_btn').on('click', function(){
     </div>
 </div>
 </body>
+<script type="text/javascript">
+window.onload = function(){
+	document.getElementById("totime").innerHTML=new Date().toLocaleDateString()+" "+new Date().toLocaleTimeString();
+}
+</script>
 </html>

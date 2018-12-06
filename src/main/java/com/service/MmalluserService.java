@@ -2,6 +2,8 @@ package com.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.MmalluserDAO;
 import com.pojo.Mmalluser;
@@ -56,6 +58,7 @@ public class MmalluserService implements IMmalluserService {
 	
 	
 	@Override
+	@Transactional(propagation=Propagation.REQUIRED)
 	public int addUser(Mmalluser mu) {
 		
 		mu.setUserpassword(MD5.md5(mu.getUserpassword()));

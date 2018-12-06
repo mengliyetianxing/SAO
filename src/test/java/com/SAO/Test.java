@@ -1,20 +1,16 @@
 package com.SAO;
 
-import java.io.IOException;
+import java.util.Date;
 
-import javax.mail.MessagingException;
+import org.json.JSONObject;
 
-import com.util.Common;
-import com.util.Email;
+import com.pojo.Mmalluser;
+import com.service.MmalluserService;
 
 public class Test {
 
 	public static void main(String[] args) {
-//		try {
-//				Email.sendEmail("962500050@qq.com", Common.getCode());
-//		} catch (MessagingException e) {
-//			e.printStackTrace();
-//		}
+
 	}
 
 }

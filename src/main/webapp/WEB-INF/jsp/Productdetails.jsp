@@ -6,6 +6,7 @@
     
    
     %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html >
 <html>
 <head>
@@ -134,23 +135,65 @@ div.zoomMask {
 </style>
 <script type="text/javascript">
 //弹出隐藏层
-function ShowDiv(show_div,bg_div){
-document.getElementById(show_div).style.display='block';
-document.getElementById(bg_div).style.display='block' ;
-var bgdiv = document.getElementById(bg_div);
-bgdiv.style.width = document.body.scrollWidth;
-// bgdiv.style.height = $(document).height();
-$("#"+bg_div).height($(document).height());
+function ShowDiv(){
+
 };
 //关闭弹出层
 function CloseDiv(show_div,bg_div)
 {
 document.getElementById(show_div).style.display='none';
 document.getElementById(bg_div).style.display='none';
+
 };
 
+function addcart(prodectid,show_div,bg_div){
+	
+	document.getElementById(show_div).style.display='block';
+	document.getElementById(bg_div).style.display='block' ;
+	var bgdiv = document.getElementById(bg_div);
+	bgdiv.style.width = document.body.scrollWidth;
+	// bgdiv.style.height = $(document).height();
+	$("#"+bg_div).height($(document).height());
+	
+	middle(prodectid);
+
+}
+
+function jian(){
+	var input=parseInt(document.getElementById("inputone").value);			
+		if(input>1){			
+				document.getElementById("inputone").value=input-1;																
+			}					
+}
+
+function jia(i){
+	var input=parseInt(document.getElementById("inputone").value);			
+		if(input>0){						
+				document.getElementById("inputone").value=input+1;
+				}							
+}
+
+
+function middle(prodectid){
+	var shuliang = document.getElementById("inputone").value;
+	window.location.href="mmallprodect/addcart?prodectid="+prodectid+"&shuliang="+shuliang;
+	alert("购物车添加成功");
+	CloseDiv(show_div,bg_div);
+}
+
+function toorder(){
+	var prodectname = document.getElementById("prodectname").innerHTML;
+	var shuliang = document.getElementById("inputone").value;
+	var prodectprice = document.getElementById("prodectprice").innerHTML;
+	window.location.href="mmallprodect/toorder?prodectname="+prodectname+"&shuliang="+shuliang+"&prodectprice="+prodectprice;
+	
+}
 </script>
 </head>
+
+
+
+
 
 <body>
 
@@ -253,9 +296,11 @@ document.getElementById(bg_div).style.display='none';
 </script>
             <input type="button" value="加入收藏" id="h1" class="addcart" onclick="ShowDiv('MyDiv2','fade2')" />
         </div>
+        
+        
         <div class="float-lt pro_detail_con">
-            <div class="pro_detail_tit">2015新茶  江苏省镇江市特产   茅山长青   高档铁盒礼盒   色泽绿匀  香气纯正</div>
-            <div class="pro_detail_ad">茅山长青是未经发酵制成的茶，保留了鲜叶的天然物质，含有的茶多酚、儿茶素、叶绿素、咖啡碱、氨基酸、维生素等营养成分也较多。这些天然营养成份对防衰老、防癌、抗癌、杀菌、消炎等具有特殊效果。</div>
+            <div id="prodectname" class="pro_detail_tit">${pro.prodectname }</div>
+            <div class="pro_detail_ad">${pro.prodectsubtitle }</div>
             <div class="pro_detail_score margin-t20">
                 <ul>
                     <li class="margin-r20">评分</li>
@@ -269,27 +314,24 @@ document.getElementById(bg_div).style.display='none';
                 </ul>
             </div>
             <div class="clear"></div>
-            <div class="pro_detail_price  margin-t20"><span class="margin-r20">市场价</span><span style=" font-size:16px"><s>￥450.00</s></span></div>
+            <div class="pro_detail_price  margin-t20"><span class="margin-r20">市场价</span><span style=" font-size:16px"><s>￥15.00</s></span></div>
             <div class="clear"></div>
-            <div class="pro_detail_act margin-t20 fl"><span class="margin-r20">售价</span><span style="font-size:26px; font-weight:bold; color:#dd514c;">￥400.00</span></div>
+            <div class="pro_detail_act margin-t20 fl"><span class="margin-r20">售价</span>￥<span id="prodectprice" style="font-size:26px; font-weight:bold; color:#dd514c;">${pro.prodectprice }</span></div>
             <div class="clear"></div>
-            <div class="act_block margin-t5"><span>本商品可使用9999积分抵用￥9.99元</span></div>
+            <div class="act_block margin-t5"><span>本商品可使用99积分抵用￥0.99元</span></div>
             <div class="pro_detail_number margin-t30">
                 <div class="margin-r20 float-lt">数量</div>
-                <div class=""> <i class="jian"></i>
-                    <input type="text" value="1" class="float-lt choose_input"/>
-                    <i class="jia"></i> <span>&nbsp;盒</span> <span>（库存000盒）</span> </div>
+                <div class="">
+                 
+               	 	<button class="jian" type="button" onclick="jian()"></button>
+                    <input type="text" value="1" class="float-lt choose_input" id="inputone" name="shuliang"/>
+                    <button class="jia" type="button" onclick="jia()"></button> 
+                     
+                    <span>&nbsp;盒</span> <span>（库存${pro.prodectstock }）</span> 
+                </div>
                 <div class="clear"></div>
             </div>
-            <div class="guige">
-                <div class="margin-r20 float-lt" style="line-height:25px;">规格</div>
-                <ul>
-                    <li class="guige-cur">规格一</li>
-                    <li>规格二</li>
-                    <li>规格三</li>
-                </ul>
-                <div class="clear"></div>
-            </div>
+            
             <div class="pro_detail_number margin-t20">
                 <div class="margin-r20 float-lt">月成交量：<span class="colorred"><strong>999件</strong></span></div>
                 <div class="clear"></div>
@@ -297,11 +339,13 @@ document.getElementById(bg_div).style.display='none';
             <div class="clear"></div>
             <div class="pro_detail_btn margin-t30">
                 <ul>
-                    <li class="pro_detail_shop"><a href="pay1.html">立即购买</a></li>
-                    <li class="pro_detail_add"><a href="#" onclick="ShowDiv('MyDiv','fade')">加入我的货仓</a></li>
+                    <li class="pro_detail_shop"><a href="javascript:toorder()">立即购买</a></li>
+                    <li class="pro_detail_add"><a href="javascript:addcart(${pro.prodectid },'MyDiv','fade')">加入购物车</a></li>
                 </ul>
             </div>
         </div>
+        
+        
         <div class="float-rt pro_right">
             <div align="center">
                 <p><img src="images/lmrz.png" /></p>

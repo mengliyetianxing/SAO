@@ -27,10 +27,7 @@
 </head>
 <script type="text/javascript">
 	var flag = true;
-	
-	window.onload = function(){
-		document.getElementById("time").innerHTML=new Date().toLocaleDateString()+" "+new Date().toLocaleTimeString();
-	}
+
 	
 	function youcheck(){
 		var rag=/^[\d]{6}$/;
@@ -55,6 +52,8 @@
 			window.location.href="mmallshipping/del?id="+id;
 		}
 	}
+	
+
 </script>
 <body>
 <head>
@@ -130,7 +129,7 @@
       </div>
       <div class="user_name">
        <p><span class="name">${user.username }</span><a href="mmalluser/toresetpwd">[修改密码]</a></p>
-       <p>访问时间：<span id="time"></span></p>
+       <p>访问时间：<span id="totime"></span></p>
        </div>           
      </div>
      <div class="sideMen">
@@ -233,6 +232,7 @@
  </div>
  </div>
  </div>
+ 
     <script>
             $(document).ready(function(){
               $('.moren_dz input').iCheck({
@@ -313,5 +313,12 @@
 <script src="js/city.js"></script>
 <script src="js/city02.js"></script>
 <script src="js/method01.js"></script>
+<script type="text/javascript">
+window.onload = function(){
+	alert(1)
+	document.getElementById("totime").innerHTML=new Date().toLocaleDateString()+" "+new Date().toLocaleTimeString();
+}
+</script>
 </body>
+
 </html>

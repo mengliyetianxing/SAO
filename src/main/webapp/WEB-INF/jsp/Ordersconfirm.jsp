@@ -67,7 +67,7 @@
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
-        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>(23)</b></a></li>	
+        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="login">我的购物车<b>(23)</b></a></li>	
 	  </ul>
 	</div>
     </c:if>
@@ -80,7 +80,7 @@
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"> <a href="#">我的小充</a> </li>
 	   <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">消息中心</a></li>
        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">商品分类</a></li>
-        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="#">我的购物车<b>${user.mmac.cartquantity }</b></a></li>	
+        <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="mmallcart/selcart">我的购物车<b>${user.mmac.cartquantity }</b></a></li>	
 	  <li class="hd_menu_tit" data-addclass="hd_menu_hover"><a href="mmalluser/Introduction">退出登录</a></li>
 	  </ul>
 	</div>
@@ -304,6 +304,7 @@
       <table>
        <thead><tr class="title"><td class="name">商品名称</td><td class="price">商品价格</td><td class="Quantity">购买数量</td><td class="Money">金额</td></tr></thead>
        <tbody>
+       <c:if test="${empty gta5 }">
        <tr>
         <td class="Product_info">
          <a href="#"><img src="products/p_11.jpg"  width="100px" height="100px"/></a>
@@ -313,6 +314,21 @@
         <td>${shuliang }</td>
         <td class="Moneys"><i>￥</i>${prodectprice*shuliang }</td>
        </tr>
+       </c:if>
+        
+        <c:if test="${not empty gta5 }">
+        	<c:forEach items="${gta5 }" var="g">
+        		<tr>
+        <td class="Product_info">
+         <a href="#"><img src="products/p_11.jpg"  width="100px" height="100px"/></a>
+         <a href="#" class="product_name">${g.pro.prodectname }</a>
+         </td>
+        <td><i>￥</i>${g.pro.prodectprice }</td>
+        <td>${g.cartquantity }</td>
+        <td class="Moneys"><i>￥</i>${prodectprice*shuliang }</td>
+       </tr>
+        	</c:forEach>
+        </c:if>
         
        </tbody>
       </table>

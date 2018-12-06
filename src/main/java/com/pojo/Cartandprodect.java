@@ -1,8 +1,20 @@
 package com.pojo;
 
+import java.math.BigDecimal;
+
 public class Cartandprodect {
 	private Mmallprodect pro;
 	private int cartquantity;
+	private BigDecimal totalprice;
+	public BigDecimal getTotalprice() {
+		BigDecimal bg=new BigDecimal(cartquantity);
+		return bg.multiply(pro.getProdectprice());
+	}
+	
+	public void setTotalprice(BigDecimal totalprice) {
+		this.totalprice = totalprice;
+	}
+
 	public Mmallprodect getPro() {
 		return pro;
 	}

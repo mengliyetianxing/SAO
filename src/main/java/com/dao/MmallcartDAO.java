@@ -2,8 +2,10 @@ package com.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.One;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -28,4 +30,7 @@ public interface MmallcartDAO {
 	})
 	public List<Cartandprodect> getCartandprodectBycartid(int id);
 	
+	//根据购物车id以及商品id删除购物车里面商品
+		@Delete("delete from cartandprodect where cartid=#{a2} and prodectid=#{a1}")
+		public int delprodect(@Param("a1")int prodectid,@Param("a2")int cartid);
 }

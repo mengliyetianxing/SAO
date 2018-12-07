@@ -27,13 +27,18 @@ public class MmallorderController {
 
 		//前往订单页面
 		@RequestMapping("/Myorder")
-		public String toMyorder(HttpServletRequest req,Mmallprodect[] xuanzekuang) {
-			
-			for (Mmallprodect cart : xuanzekuang) {
-				System.out.println(cart);
+		public String toMyorder(HttpServletRequest req,String[] xuanzekuang) {
+			List<Cartandprodect> list = new ArrayList<>();
+			if(list!=null)
+			for (String cart : xuanzekuang) {
+				String[] arr = cart.split("-");
+				Cartandprodect c = new Cartandprodect();
+				Mmallprodect m = is.getMmallprodectById(Integer.valueOf(arr[0]));
+				c.setCartquantity(Integer.valueOf(arr[1]));
+				c.setPro(m);
+				list.add(c);
 			}
-			
-			req.setAttribute("gta5", "");
+			req.setAttribute("gta5", list);
 			return "Ordersconfirm";
 		}
 

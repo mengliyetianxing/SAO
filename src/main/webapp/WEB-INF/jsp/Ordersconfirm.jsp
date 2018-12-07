@@ -51,6 +51,14 @@
     		}else{
     			document.getElementById("topp").innerHTML="晚上好";
     		}
+    		
+    		var crr = document.getElementsByName("chaojitotle");
+    		var sum = 0;
+    		for(var i=0;i<crr.length;i++){
+    			sum += Number(crr[i].innerHTML);
+    		}
+			document.getElementById("sm1").innerHTML=sum;
+			document.getElementById("sm2").innerHTML=sum;
         }
     </script>
 <body>
@@ -312,7 +320,7 @@
          </td>
         <td><i>￥</i>${prodectprice }</td>
         <td>${shuliang }</td>
-        <td class="Moneys"><i>￥</i>${prodectprice*shuliang }</td>
+        <td class="Moneys"><i>￥</i><span name="chaojitotle">${prodectprice*shuliang }</span></td>
        </tr>
        </c:if>
         
@@ -320,12 +328,12 @@
         	<c:forEach items="${gta5 }" var="g">
         		<tr>
         <td class="Product_info">
-         <a href="#"><img src="products/p_11.jpg"  width="100px" height="100px"/></a>
-         <a href="#" class="product_name">${g.pro.prodectname }</a>
+         <a><img src="products/p_11.jpg"  width="100px" height="100px"/></a>
+         <a class="product_name">${g.pro.prodectname }</a>
          </td>
         <td><i>￥</i>${g.pro.prodectprice }</td>
         <td>${g.cartquantity }</td>
-        <td class="Moneys"><i>￥</i>${prodectprice*shuliang }</td>
+        <td class="Moneys"><i>￥</i><span name="chaojitotle">${g.pro.prodectprice*g.cartquantity }</span></td>
        </tr>
         	</c:forEach>
         </c:if>
@@ -337,12 +345,16 @@
       <!--价格-->
       <div class="price_style">
       <div class="right_direction">
+
         <ul>
-         <li><label>商品总价</label><i>￥</i><span>${prodectprice*shuliang }</span></li>        
+         <li><label>商品总价</label><i>￥</i><span id="sm1"></span></li>        
          <li><label>配&nbsp;&nbsp;送&nbsp;&nbsp;费</label><i>￥</i><span>0</span></li>
-         <li class="shiji_price"><label>实&nbsp;&nbsp;付&nbsp;&nbsp;款</label><i>￥</i><span>${prodectprice*shuliang }</span></li>    
+         <li class="shiji_price"><label>实&nbsp;&nbsp;付&nbsp;&nbsp;款</label><i>￥</i><span id="sm2"></span></li>    
         </ul> 
-          
+
+      
+
+      
         <div style="width: 100%;height: 100px;margin-top: 130px;margin-left: 30px">
         <input name="submit" type="submit" value="提交订单" style="width: 130px;height: 50px;" class="btn"/> 
         <input name="" type="button"  onclick="#:window.history.go(-1);" value="返回购物车"  class="btn" style="width: 130px;height: 50px;"/>

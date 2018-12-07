@@ -1,16 +1,13 @@
 package com.SAO;
 
-import java.util.Date;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-import org.json.JSONObject;
-
-import com.pojo.Mmalluser;
-import com.service.MmalluserService;
 
 public class Test {
 
 	public static void main(String[] args) {
-
+		ExecutorService es = Executors.newCachedThreadPool();
 	}
 
 }

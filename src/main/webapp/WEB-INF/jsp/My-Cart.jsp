@@ -286,7 +286,7 @@
          	<c:forEach items="${cart}" var="cart" varStatus="cou">                      
             <div class="trunk3_1" name="">           		
 		 	<div class="trunk3_2">
-		 	<div  style="float:left;width:20px;" ><input name="xuanzekuang" id="xuanzekuang${cou.index}" onclick="gouxuan(${cou.index})" type="checkbox" value="${cart.pro.prodectid }"></div>		 	
+		 	<div  style="float:left;width:20px;" ><input name="xuanzekuang" id="xuanzekuang${cou.index}" onclick="gouxuan(${cou.index})" type="checkbox" value="${cart.pro.prodectid }-${cart.cartquantity}"></div>		 	
 		 	<div id="prodectname" name="prodectname">${cart.pro.prodectname}</div>		 	
 		 	</div>     		
 			 <div class="trunk3_3">			 	
